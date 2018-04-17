@@ -52,15 +52,17 @@ function read_OpeningFcn(hObject, eventdata, handles, varargin)
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to Interfaz (see VARARGIN)
 
-fondo = imread('13.jpg');
-image(fondo);
+
 
 handles.output = hObject;
 
 % Update handles structure
 guidata(hObject, handles);
-
-
+axes(handles.axes1)
+movegui('center');
+axis off;
+fondo = imread('13.jpg');
+image(fondo);
 % Update handles structure
 
 % UIWAIT makes read wait for user response (see UIRESUME)
@@ -81,7 +83,8 @@ start(t)
         t=linspace(0,2*pi); %círculo
         x=1000*cos(t);  
         y=1000*sin(t);
-        %plot(x,y);
+        axes(handles.axes15)
+        plot(x,y);
          
         hold on 
       
@@ -91,11 +94,10 @@ start(t)
             d(j)= sqrt((xu(j).^2)+(yu(j).^2));
         end
         disp(d)
-       % plot(xu,yu,'k.');
+        plot(xu,yu,'k.');
                 
         hold off
         pause(1)
-        %axes(handles.axes15);
     
     end
 
